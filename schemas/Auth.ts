@@ -14,6 +14,11 @@ const authSchema = (type: "sign-in" | "sign-up") =>
       type === "sign-in"
         ? z.string().min(2).max(50).optional()
         : z.string().min(2).max(50),
+
+    city:
+      type === "sign-in"
+        ? z.string().min(2).max(100).optional()
+        : z.string().min(2).max(100),
     state:
       type === "sign-in"
         ? z.string().min(2).max(50).optional()

@@ -2,6 +2,7 @@
 "use server";
 import { Client, Account, Databases, Users } from "node-appwrite";
 import { cookies } from "next/headers";
+import { get } from "http";
 
 export async function createSessionClient() {
   const client = new Client()
@@ -37,6 +38,9 @@ export async function createAdminClient() {
   return {
     get account() {
       return new Account(client);
+    },
+    get database() {
+      return new Databases(client);
     },
   };
 }
